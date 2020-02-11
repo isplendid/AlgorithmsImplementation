@@ -1,4 +1,4 @@
-package com.atguigu.search;
+package com.xu.atguigu.search;
 
 import java.util.Arrays;
 
