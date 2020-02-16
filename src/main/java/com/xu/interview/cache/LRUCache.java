@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * "经常访问度"
  * 加入新纪录， 加到NodeDoubleLinkedList尾部; 一旦获得（get）或者 设置（set)一个记录的key, 将这个key 对应的Node 调整到 NodeDoubleLinkedList尾部
- * 一旦 cache满了，一处head。
+ * 一旦 cache满了，移除head。
  * 为了能让每一个key 都能找到在 NodeDoubleLinkedList 所对应的的节点，两个map: key->Node,  node -> key
  */
 public class LRUCache<K,V> {

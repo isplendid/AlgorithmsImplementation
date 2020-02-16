@@ -46,6 +46,7 @@ public class LevelTraversalTree_102 {
                     queue.offer(node.right);
                 }
             }
+
             result.add(list);    // 逆序打印： result.add(0,list);
         }
         return result;

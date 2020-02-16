@@ -53,7 +53,7 @@ public class NodeDoubleLinkedList<V> {
         if(this.head == this.tail){
             this.head = null;
             this.tail = null;
-        }{
+        }else {
             this.head = res.next;
             res.next = null;
             this.head.last = null;
