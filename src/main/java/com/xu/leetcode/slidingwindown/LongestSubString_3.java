@@ -1,5 +1,8 @@
 package com.xu.leetcode.slidingwindown;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by sop on 2020/2/19.
  *
@@ -24,7 +27,7 @@ public class LongestSubString_3 {
      * @param s
      * @return
      */
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         int n = s.length();
         int res =0;
         int[] index = new int[128]; //current index of character
@@ -35,6 +38,33 @@ public class LongestSubString_3 {
             index[s.charAt(j)] = j;
         }
         return res;
+    }
+
+    /***
+     * i: points to the left of same character last found
+     * j: scan the string
+     * @param s
+     * @return
+     */
+    public static int lengthOfLongestSubstringMap(String s) {
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>(); // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            if (map.containsKey(s.charAt(j))) {
+                i = Math.max(map.get(s.charAt(j)) + 1, i);  //the same element +1,the left pointer move forward;
+            }
+            ans = Math.max(ans, j - i + 1);
+           // map.put(s.charAt(j), j + 1);
+            map.put(s.charAt(j), j);
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        String str = "abcabcbb";
+        int res = lengthOfLongestSubstringMap(str);
+        System.out.println(res);
     }
 
 }
