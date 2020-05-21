@@ -15,13 +15,13 @@ public class ZigzagLevelOrder_103 {
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
         TreeNode node;
-        boolean isLeft2Right = false;
+        boolean isRight2left = false;
         while (!queue.isEmpty()) {
             int levelNum = queue.size();
             List<Integer> list = new ArrayList<Integer>();
             while (levelNum-- > 0) {   //新的一层遍历
                 node = queue.poll();
-                if (isLeft2Right) {
+                if (isRight2left) {
                     list.add(0, node.val);
                 } else {
                     list.add(node.val);
@@ -33,7 +33,7 @@ public class ZigzagLevelOrder_103 {
                     queue.add(node.right);
                 }
             }
-            isLeft2Right = !isLeft2Right;
+            isRight2left = !isRight2left;
             result.add(list);    // 逆序打印： result.add(0,list);
         }
         return result;

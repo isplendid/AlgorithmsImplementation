@@ -6,6 +6,8 @@ import java.util.LinkedList;
 /**
  * Created by sop on 2020/3/15.
  * https://leetcode-cn.com/problems/max-area-of-island/solution/javaban-3chong-jie-fa-by-wang_dong/
+ *
+ * . 岛屿的最大面积
  */
 public class MaxAreaOfIsland_695 {
 

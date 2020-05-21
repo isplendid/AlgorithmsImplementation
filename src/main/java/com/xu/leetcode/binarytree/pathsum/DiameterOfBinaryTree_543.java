@@ -4,7 +4,7 @@ import com.xu.leetcode.binarytree.TreeNode;
 
 /**
  * Created by sop on 2020/3/10.
- *
+ *  求 二叉树的节点的最大距离
  * 给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过根结点。
  * 给定二叉树
 
@@ -30,4 +30,6 @@ public class DiameterOfBinaryTree_543 {
         maxDep = Math.max(l+r, maxDep);
         return Math.max(l,r) + 1;
     }
+
+
 }

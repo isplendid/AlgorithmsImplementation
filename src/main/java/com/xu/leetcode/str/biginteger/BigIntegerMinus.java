@@ -29,8 +29,6 @@ public class BigIntegerMinus {
     }
 
     private static String  sub(String a, String b){
-        int lenA = a.length();
-        int lenB = b.length();
         StringBuffer sb = new StringBuffer();
         int carry = 0;
         for(int i=a.length() -1, j=b.length()-1; i>=0||j>=0; i--, j--){
@@ -39,6 +37,7 @@ public class BigIntegerMinus {
             int cur;
             if(ca + carry - cb >= 0){
                 cur = ca + carry - cb ;
+                carry = 0;
             } else {
                 cur = ca + carry - cb  + 10;
                 carry = -1;
@@ -53,8 +52,8 @@ public class BigIntegerMinus {
     }
 
     public static void main(String[] args) {
-        String a = "233";
-        String b = "999";
+        String a = "1090";
+        String b = "978";   //minus(a,b) = 112
         System.out.println(minus(a,b));
     }
 

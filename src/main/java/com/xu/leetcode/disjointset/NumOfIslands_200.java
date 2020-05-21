@@ -5,9 +5,6 @@ package com.xu.leetcode.disjointset;
  */
 public class NumOfIslands_200 {
 
-
-
-
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) {
             return 0;

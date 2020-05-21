@@ -62,6 +62,8 @@ public class SimpleBloomFilter {
             filter.add(value);
             System.out.println("filter.add("+value+"):"+filter.contains(value));
             System.out.println("----------------------------------------------------");
+            StringBuilder sb = new StringBuilder();
+            StringBuffer sbuffer = new StringBuffer();
         }
     }
 }
