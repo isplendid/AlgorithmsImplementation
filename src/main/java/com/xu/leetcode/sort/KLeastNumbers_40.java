@@ -1,4 +1,4 @@
-package com.xu.leetcode.heap;
+package com.xu.leetcode.sort;
 
 import java.util.PriorityQueue;
 
@@ -40,8 +40,8 @@ public class KLeastNumbers_40 {
     }
 
     /***
-     * 而快速选择（quick select）算法的不同之处在于，接下来只需要递归地选择一侧的数组。快速选择算法想当于一个“不完全”的快速排序，因为我们只需要知道最小的 k 个数是哪些，并不需要知道它们的顺序。
-
+     * 而快速选择（quick select）算法的不同之处在于，接下来只需要递归地选择一侧的数组。
+     * 快速选择算法想当于一个“不完全”的快速排序，因为我们只需要知道最小的 k 个数是哪些，并不需要知道它们的顺序。
      我们的目的是寻找最小的 kk 个数。假设经过一次 partition 操作，枢纽元素位于下标 mm，也就是说，左侧的数组有 mm 个元素，是原数组中最小的 mm 个数。那么：
 
      若 k = mk=m，我们就找到了最小的 kk 个数，就是左侧的数组；
