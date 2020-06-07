@@ -12,9 +12,9 @@ public class DeleteDuplicates_82 {
         slow.next = fast;
         while(fast != null){
             while(fast.next != null && fast.val == fast.next.val){
-                fast = fast.next; //while loop to find the last node oft the dups
+                fast = fast.next; //while loop to find the last node of the dups
             }
-            if(slow.next != fast){ //duplicates detected
+            if(slow.next != fast){ //duplicates detector
                 slow.next = fast.next;// remove the dups
                 fast = slow.next;
             }else { //no dup, move forward both pointers

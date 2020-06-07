@@ -1,4 +1,4 @@
-package com.xu.leetcode.contest;
+package com.xu.leetcode.contest.c191;
 
 import java.util.ArrayList;
 

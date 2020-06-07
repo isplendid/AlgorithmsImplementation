@@ -8,6 +8,14 @@ package com.xu.leetcode.dynamic.subseq;
  * 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
  */
 public class LengthOfLIS_300 {
+    /***
+     * 方法一：动态规划
+     *
+     * time: O(N2)
+     * space: 0(N)
+     * @param nums
+     * @return
+     */
     public int lengthOfLIS(int[] nums) {
         if(null == nums || nums.length == 0) return 0;
 
@@ -29,4 +37,14 @@ public class LengthOfLIS_300 {
         return res;
 
     }
+//
+//    /***
+//     * 方法二： 贪心+二分
+//     * @param nums
+//     * @return
+//     */
+//    public int lengthOfLIS_2(int[] nums){
+//
+//    }
+
 }

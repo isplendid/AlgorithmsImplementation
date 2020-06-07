@@ -35,7 +35,7 @@ public class IsBSTree_98 {
                 stack.push(root);
                 root = root.left;
             } else {
-                root = stack.pop();
+                    root = stack.pop();
                 if(last >= root.val) return false;
                 last = root.val;
                 root = root.right;
