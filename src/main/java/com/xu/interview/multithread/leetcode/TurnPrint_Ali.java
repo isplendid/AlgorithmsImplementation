@@ -29,15 +29,7 @@ public class TurnPrint_Ali {
 
     public static void main(String[] args) throws InterruptedException {
         FooBar_Byturn_1115 fooBar = new FooBar_Byturn_1115(3);
-
-         Semaphore odd = new Semaphore(1);
-         Semaphore even = new Semaphore(0);
          String str = "20200517"; //交替打印字符
-
-
-
-
-
 
         Thread t1 = new Thread(() -> {
             try {

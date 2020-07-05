@@ -1,7 +1,7 @@
 /**
  * Created by sop on 2020/3/14.
  */
-package com.xu.leetcode.dynamic.subseq;
+package com.xu.leetcode.dynamic;
 
 
 //求解子序列问题， 动态规划

@@ -1,4 +1,4 @@
-package com.xu.leetcode.dynamic.subseq.word;
+package com.xu.leetcode.dynamic.word;
 
 import java.util.*;
 

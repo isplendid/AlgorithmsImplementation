@@ -26,7 +26,6 @@ public class FooBar_Byturn_1115 {
     }
 
     public void foo(Runnable printFoo) throws InterruptedException {
-
         for (int i = 0; i < n; i++) {
             foo.acquire();
             // printFoo.run() outputs "foo". Do not change or remove this line.
@@ -46,7 +45,7 @@ public class FooBar_Byturn_1115 {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        FooBar_Byturn_1115 fooBar = new FooBar_Byturn_1115(3);
+        FooBar_Byturn_1115 fooBar = new FooBar_Byturn_1115(4);
 
 
         Thread t1 = new Thread(() -> {
@@ -70,6 +69,7 @@ public class FooBar_Byturn_1115 {
 
         t2.start();
         t1.start();
+
 
     }
 }
