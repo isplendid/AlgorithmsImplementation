@@ -20,7 +20,7 @@ import java.util.ArrayList;
  The 2nd student himself is in a friend circle. So return 2.
  */
 
-class Solution {
+class FriendCircles_547 {
     //无向图连通分量
     public int findCircleNum(int[][] M) {
         if(M.length == 0){
@@ -60,7 +60,3 @@ class Solution {
 
 }
 
-
-public class FriendCircles_547 {
-
-}
