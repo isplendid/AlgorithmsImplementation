@@ -17,7 +17,7 @@ public class EatingBanana_875 {
         int right = maxSpeed;
         while(left <= right){
             int mid= left +(right -left)/2;
-            if(canFinish(piles, mid, H)){
+            if(canFinish(piles, mid, H)){  //查找左边界，找到第一个满足 条件的
                 right = mid-1;
             } else {
                 left = mid + 1;
