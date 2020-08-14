@@ -24,4 +24,31 @@ public class SwapPairs_24 {
         next.next = head;
         return next;
     }
+
+    //迭代法：prevNode.next 指向交换后的头；  firstNode（即 A） 和 secondNode（即 B） 分别遍历偶数节点和奇数节点，即两步看作一步
+    public ListNode swapPairs2(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode prevNode = dummy;
+
+        while(head != null && head.next != null ){
+            //nodes to be swapped
+            ListNode firstNode = head;
+            ListNode secondNode = head.next;
+
+            //swapping
+            prevNode.next = secondNode;
+
+            firstNode.next = secondNode.next;
+            secondNode.next = firstNode;
+
+            //reset the head an prevNode for next swap
+            prevNode = firstNode;
+            head = firstNode.next;
+        }
+        return dummy.next;
+
+    }
+
+
 }
