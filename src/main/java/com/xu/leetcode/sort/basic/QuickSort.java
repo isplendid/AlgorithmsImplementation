@@ -16,15 +16,15 @@ public class QuickSort {
     private int partition(int[] A, int low, int high){
          int pivot = A[low];
         while(low < high){
-            while(low < high && A[high] >= pivot){
+            while(low < high && A[high] >= pivot){  //挖坑A[low] , 将A[high]填上 A[low]上
                 high--;
             }
             A[low] = A[high];
 
-            while(low < high && A[low] <= pivot){
+            while(low < high && A[low] <= pivot){ // A[low]的值 填到 A[high]的坑上
                 low++;
             }
-            A[high] = A[low];
+            A[high] = A[low];   //或者直接swap(A,low,high)亦可
         }
         //最终 low = high
         A[low] = pivot;
