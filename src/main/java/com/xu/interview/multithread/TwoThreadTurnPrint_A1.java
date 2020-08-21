@@ -23,48 +23,41 @@ public class TwoThreadTurnPrint_A1 {
     public static void main(String[] args) {
 
 
-//
-//        new Thread(() -> {
-//          for(int i=1; i<=26; i++){
-//              synchronized (lock){
-//                  lock.notify();  // 字母
-//                  try {
-//                      lock.wait();
-//                  } catch (InterruptedException e) {
-//                      e.printStackTrace();
-//                  }
-//                  System.out.print((char)(start + i));
-//                  lock.notify();
-//              }
-//
-//          }
-//
-//        },"letter").start();
-//
-//
-//        new Thread(() -> {
-//            for(int i=1; i<=26; i++){
-//                synchronized (lock){
-//                    lock.notify();  //数字
-//                    try {
-//                        lock.wait();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                    System.out.print(i);
-//                }
-//            }
-//
-//        },"digit").start();
 
-    String str1= "abc";
-        String str2 = "bcd";
-        System.out.println("va: "+str1.compareTo(str2));
+        new Thread(() -> {
+          for(int i=1; i<=26; i++){
+              synchronized (lock){
+                  lock.notify();  // 字母
+                  try {
+                      lock.wait();
+                  } catch (InterruptedException e) {
+                      e.printStackTrace();
+                  }
+                  System.out.print((char)(start + i));
+                  lock.notify();
+              }
 
-        String i= "002";
-        int value = Integer.parseInt(i);
-        System.out.println(value);
-        System.out.println(String.valueOf(value).length() != i.length());
+          }
+
+        },"letter").start();
+
+
+        new Thread(() -> {
+            for(int i=1; i<=26; i++){
+                synchronized (lock){
+                    lock.notify();  //数字
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.print(i);
+                }
+            }
+
+        },"digit").start();
+
+
 
     }
 
