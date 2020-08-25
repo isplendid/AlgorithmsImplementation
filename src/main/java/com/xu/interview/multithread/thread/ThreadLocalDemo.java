@@ -10,7 +10,7 @@ public class ThreadLocalDemo {
         Thread t = new Thread(()->test("abc",false));
         t.start();
         t.join();
-        System.out.println("--gc后--");
+        System.out.println("--gc after--");
         Thread t2 = new Thread(() -> test("def", true));
         t2.start();
         t2.join();
@@ -38,7 +38,7 @@ public class ThreadLocalDemo {
                     Field referenceField = entryClass.getSuperclass().getSuperclass().getDeclaredField("referent");
                     valueField.setAccessible(true);
                     referenceField.setAccessible(true);
-                    System.out.println(String.format("弱引用key:%s,值:%s", referenceField.get(o), valueField.get(o)));
+                    System.out.println(String.format("weekReference key:%s, value:%s", referenceField.get(o), valueField.get(o)));
                 }
             }
         } catch (Exception e) {
