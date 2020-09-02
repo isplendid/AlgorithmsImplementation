@@ -5,9 +5,9 @@ package com.xu.leetcode.binarytree;
  */
 public class LowestCommonAncestorBST_235 {
     /***
-     * 间复杂度：O(N)O(N)
-     其中 NN 为 BST 中节点的个数，在最坏的情况下我们可能需要遍历 BST 中所有的节点
-     空间复杂度：O(1)O(1)
+     * 间复杂度：O(N)
+     其中 N 为 BST 中节点的个数，在最坏的情况下我们可能需要遍历 BST 中所有的节点
+     空间复杂度：O(1)
      * @param root
      * @param p
      * @param q

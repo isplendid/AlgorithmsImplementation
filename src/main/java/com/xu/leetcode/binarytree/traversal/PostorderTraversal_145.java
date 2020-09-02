@@ -39,6 +39,9 @@ public class PostorderTraversal_145 {
 
     /***
      * 一个栈实现非递归后续遍历
+     * 添加节点的两种情况：
+     * 1)当前经过节点是叶子节点。
+     * 2)当前经过节点的右子节点是上一次访问的节点
      * @param root
      * @return
      */
@@ -68,6 +71,8 @@ public class PostorderTraversal_145 {
 
     /***
      * 一个栈实现非递归后续遍历
+     *
+     *
      * @param root
      * @return
      */

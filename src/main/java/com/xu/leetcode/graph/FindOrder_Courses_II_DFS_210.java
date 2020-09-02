@@ -72,5 +72,8 @@ public class FindOrder_Courses_II_DFS_210 {
         FindOrder_Courses_II_DFS_210 dfs = new FindOrder_Courses_II_DFS_210();
         int[] res= dfs.findOrder2(num, prerequisites);
         Arrays.stream(res).forEach(System.out::println);
+
+        List<Integer> list = new ArrayList<>();
+        System.out.println(list.remove(list.size()-1));
     }
 }
