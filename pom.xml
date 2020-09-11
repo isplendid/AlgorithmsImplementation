@@ -23,7 +23,7 @@
     </properties>
 
 
-    <dependencyManagement>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <dependency>
@@ -48,6 +48,6 @@
 
     </dependencies>
 
-    </dependencyManagement>
+
 
 </project>
