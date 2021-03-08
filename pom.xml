@@ -8,6 +8,8 @@
     <modules>
         <module>algorithm-implementation</module>
         <module>system-design</module>
+        <module>java-guide</module>
+        <!--        <module>java-basic</module>-->
     </modules>
 
 

@@ -16,15 +16,18 @@ public class NTreePreorder_589 {
     public List<Integer> preorder(NNode root) {
         Stack<NNode> stack = new Stack<NNode>();
         LinkedList<Integer> res = new LinkedList();
-        if(root == null) return res;
+        if (root == null) {
+            return res;
+        }
         stack.push(root);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             root = stack.pop();
             res.add(root.val);
             List<NNode> childs = root.children;
-            if(childs != null){
+            if (childs != null) {
+                //注意: 需要逆序
                 Collections.reverse(childs);
-                for(NNode c: childs){
+                for (NNode c : childs) {
                     stack.push(c);
                 }
             }
@@ -39,17 +42,19 @@ public class NTreePreorder_589 {
      */
     public List<List<Integer>> levelOrder(NNode root) {
         List<List<Integer>> res = new ArrayList<>();
-        if(root == null) return res;
-        LinkedList<NNode> queue = new LinkedList<>();
+        if (root == null) {
+            return res;
+        }
+        Queue<NNode> queue = new LinkedList<>();
         queue.offer(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
             List<Integer> levels = new ArrayList<>();
-            while(size -- > 0){
+            while (size-- > 0) {
                 NNode cur = queue.poll();
                 levels.add(cur.val);
-                if(cur.children != null){
-                    for(NNode node: cur.children){
+                if (cur.children != null) {
+                    for (NNode node : cur.children) {
                         queue.offer(node);
                     }
                 }
@@ -68,14 +73,16 @@ public class NTreePreorder_589 {
     public List<Integer> postorder(NNode root) {
         Stack<NNode> stack = new Stack<NNode>();
         LinkedList<Integer> res = new LinkedList();
-        if(root == null) return res;
+        if (root == null) {
+            return res;
+        }
         stack.push(root);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             root = stack.pop();
-            res.addFirst(root.val);
+            res.addFirst(root.val); //todo addLast()
             List<NNode> childs = root.children;
-            if(childs != null){
-                for(NNode c: childs){
+            if (childs != null) {
+                for (NNode c : childs) {
                     stack.push(c);
                 }
             }

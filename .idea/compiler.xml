@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="algorithm-implementation" />
         <module name="system-design" />
+        <module name="algorithm-implementation" />
+        <module name="java-guide" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="algorithm" target="1.8" />
       <module name="algorithm-implementation" target="1.8" />
       <module name="algorithmimplementation" target="1.8" />
+      <module name="java-guide" target="1.8" />
       <module name="system-design" target="1.8" />
       <module name="SystemDesign" target="1.8" />
     </bytecodeTargetLevel>

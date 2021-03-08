@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/algorithm.iml" filepath="$PROJECT_DIR$/algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/algorithm-implementation/algorithm-implementation.iml" filepath="$PROJECT_DIR$/algorithm-implementation/algorithm-implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-guide/java-guide.iml" filepath="$PROJECT_DIR$/java-guide/java-guide.iml" />
       <module fileurl="file://$PROJECT_DIR$/system-design/system-design.iml" filepath="$PROJECT_DIR$/system-design/system-design.iml" />
     </modules>
   </component>
