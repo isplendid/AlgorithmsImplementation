@@ -11,31 +11,37 @@ import java.util.Stack;
  * 输出: 7 -> 8 -> 0 -> 7
  */
 public class TwoSumII_445 {
+    /**
+     * 用栈处理，逆序处理，注意trick, carry != 0
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode p=l1, q = l2;
         Stack<Integer> s1 = new Stack<Integer>();
         Stack<Integer> s2 = new Stack<Integer>();
-        while(l1 != null){
-            s1.push(l1.val);
-            l1 = l1.next;
+        while(p!=null) {
+            s1.push(p.val);
+            p = p.next;
         }
-        while(l2 != null){
-            s2.push(l2.val);
-            l2 = l2.next;
+        while(q!=null) {
+            s2.push(q.val);
+            q = q.next;
         }
-
-        int sum = 0;
-
-        ListNode list = new ListNode(0);
-        while(!s1.isEmpty() || ! s2.isEmpty()){
-            if(!s1.isEmpty()) sum += s1.pop();
-            if(!s2.isEmpty()) sum += s2.pop();
-
-            list.val = sum % 10;
-            ListNode head = new ListNode(sum/10);
-            head.next = list;
-            list = head;
-            sum /=10;
+        int carry = 0;
+        ListNode res= null;;
+        while(!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
+            int x = s1.isEmpty()? 0: s1.pop();
+            int y = s2.isEmpty()? 0: s2.pop();
+            int sum = x + y + carry;
+            ListNode curnode = new ListNode( sum % 10);
+            curnode.next = res;
+            carry =  sum /10;
+            res = curnode;
         }
-        return list.val == 0? list.next : list;
+        return res;
+
     }
 }

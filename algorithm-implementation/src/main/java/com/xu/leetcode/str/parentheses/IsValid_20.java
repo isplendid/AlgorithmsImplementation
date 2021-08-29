@@ -31,4 +31,55 @@ public class IsValid_20 {
         else if (c==']') return '[';
         else return '(';
     }
+
+
+    /**
+     * 2021.08.24
+     * @param s
+     * @return
+     */
+    public boolean isValid2(String s) {
+        Stack<Character> stack = new Stack<>();
+        boolean res = true;
+        for(char c: s.toCharArray()){
+            switch (c) {
+                case '(':
+                case '{':
+                case '[':
+                    stack.push(c);
+                    break;
+                case ']':
+                    if(!stack.isEmpty() && stack.peek() == '['){
+                        stack.pop();
+                    } else {
+                        res = false;
+                    }
+                    break;
+                case '}':
+                    if(!stack.isEmpty() && stack.peek() == '{'){
+                        stack.pop();
+                    } else {
+                        res = false;
+                    }
+                    break;
+
+                case ')':
+                    if(!stack.isEmpty() && stack.peek() == '('){
+                        stack.pop();
+                    } else {
+                        res = false;
+                    }
+                    break;
+            }
+            if(!res){
+                return res;
+            }
+
+        }
+        if(!stack.isEmpty()) {
+            res = false;
+        }
+        return res;
+
+    }
 }

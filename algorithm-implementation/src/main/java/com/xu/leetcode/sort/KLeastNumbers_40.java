@@ -4,6 +4,8 @@ import java.util.PriorityQueue;
 
 /**
  * Created by sop on 2020/3/20.
+ * PriorityQueue 默认小根堆，大根堆需要重写比较器
+ *
  */
 public class KLeastNumbers_40 {
     /***

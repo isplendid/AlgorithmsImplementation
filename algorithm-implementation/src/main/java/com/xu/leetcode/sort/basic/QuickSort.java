@@ -2,6 +2,8 @@ package com.xu.leetcode.sort.basic;
 
 /**
  * Created by sop on 2020/5/31.
+ *
+ * T(N) = 2T(N/2) + O(N)
  */
 public class QuickSort {
      public void quickSort(int[] A, int low, int high){
@@ -10,9 +12,16 @@ public class QuickSort {
          }
          int pos = partition(A, low, high);//快速排序的切分
          quickSort(A, low, pos-1); //排序左半部分 A[low..pos-1]
-         quickSort(A, pos+1, high); //排序由半部分 A[pos+1..high]
+         quickSort(A, pos+1, high); //排序右半部分 A[pos+1..high]
      }
 
+    /**
+     * 时间复杂度 O(N)
+     * @param A
+     * @param low
+     * @param high
+     * @return
+     */
     private int partition(int[] A, int low, int high){
          int pivot = A[low];
         while(low < high){

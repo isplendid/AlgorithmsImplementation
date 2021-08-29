@@ -10,14 +10,14 @@ public class DeleteDuplicates_82 {
         ListNode dummy = new ListNode(-1);
         ListNode slow = dummy, fast = head;
         slow.next = fast;
-        while(fast != null){
-            while(fast.next != null && fast.val == fast.next.val){
+        while (fast != null) {
+            while (fast.next != null && fast.val == fast.next.val) {
                 fast = fast.next; //while loop to find the last node of the dups
             }
-            if(slow.next != fast){ //duplicates detector
+            if (slow.next != fast) { //duplicates detector
                 slow.next = fast.next;// remove the dups
                 fast = slow.next;
-            }else { //no dup, move forward both pointers
+            } else { //no dup, move forward both pointers
                 slow = slow.next;
                 fast = fast.next;
             }

@@ -10,10 +10,12 @@ import java.util.List;
  */
 public class TestUnit {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("xsc");
-        System.out.println(list);
-        list = list.subList(1, list.size());
-        System.out.println(list);
+//        List<String> list = new ArrayList<>();
+//        list.add("xsc");
+//        System.out.println(list);
+//        list = list.subList(1, list.size());
+//        System.out.println(list);
+        StringBuilder builder = new StringBuilder();
+        System.out.println(builder.toString());
     }
 }
