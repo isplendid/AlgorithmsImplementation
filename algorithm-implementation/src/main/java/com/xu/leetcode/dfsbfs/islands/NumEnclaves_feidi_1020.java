@@ -1,4 +1,4 @@
-package com.xu.leetcode.dfsbfs;
+package com.xu.leetcode.dfsbfs.islands;
 
 /**
  * Created by sop on 2020/5/31.

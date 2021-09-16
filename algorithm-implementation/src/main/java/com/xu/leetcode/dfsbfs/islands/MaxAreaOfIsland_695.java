@@ -1,4 +1,4 @@
-package com.xu.leetcode.dfsbfs;
+package com.xu.leetcode.dfsbfs.islands;
 
 import java.util.Deque;
 import java.util.LinkedList;

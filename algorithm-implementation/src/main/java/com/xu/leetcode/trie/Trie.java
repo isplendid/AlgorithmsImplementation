@@ -1,10 +1,12 @@
 package com.xu.leetcode.trie;
 
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by sop on 2019/1/27.
+ *
  * @see https://leetcode.com/problems/implement-trie-prefix-tree/
  * Implement a trie with insert, search, and startsWith methods.Implement a trie with insert, search, and startsWith methods.
  */
@@ -23,36 +25,47 @@ class Trie {
     class TrieNode {
         public boolean isEnd;
         public Map<Character, TrieNode> children;          // Map is more applicable to all chars, not limited to 256 ASCII
-        public TrieNode(){
+
+        public TrieNode() {
             this.isEnd = false;
-            this.children = new HashMap<Character, TrieNode>();
+            this.children = new HashMap<>();
         }
     }
 
-    TrieNode root;
+    private TrieNode root;
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public Trie() {
-       root = new TrieNode();
+        root = new TrieNode();
     }
 
-    /** Inserts a word into the trie. */
+    /**
+     * Inserts a word into the trie.
+     */
     public void insert(String word) {
-        if(null == word || word.length() ==0 || search(word)) return;
+        if (null == word || word.length() == 0 || search(word)) {
+            return;
+        }
         TrieNode node = root;
-        for(char c: word.toCharArray()){
-                node.children.putIfAbsent(c, new TrieNode());
+        for (char c : word.toCharArray()) {
+            node.children.putIfAbsent(c, new TrieNode());
             node = node.children.get(c);
         }
         node.isEnd = true;  //can set word to node as well, is needed
     }
 
-    /** Returns if the word is in the trie. correct path + isEnd */
+    /**
+     * Returns if the word is in the trie. correct path + isEnd
+     */
     public boolean search(String word) {
-        if(null == word || word.length() == 0) return false;
+        if (null == word || word.length() == 0) {
+            return false;
+        }
         TrieNode node = root;
-        for(char c: word.toCharArray()) {
-            if(!node.children.containsKey(c)){
+        for (char c : word.toCharArray()) {
+            if (!node.children.containsKey(c)) {
                 return false;
             }
             node = node.children.get(c);
@@ -60,12 +73,16 @@ class Trie {
         return node.isEnd;
     }
 
-    /** Returns if there is any word in the trie that starts with the given prefix. */
+    /**
+     * Returns if there is any word in the trie that starts with the given prefix.
+     */
     public boolean startsWith(String prefix) {
-        if(null == prefix || prefix.length() == 0) return false;
+        if (null == prefix || prefix.length() == 0) {
+            return false;
+        }
         TrieNode node = root;
-        for(char c: prefix.toCharArray()){
-            if(!node.children.containsKey(c)){
+        for (char c : prefix.toCharArray()) {
+            if (!node.children.containsKey(c)) {
                 return false;
             }
             node = node.children.get(c);
@@ -80,4 +97,5 @@ class Trie {
  * obj.insert(word);
  * boolean param_2 = obj.search(word);
  * boolean param_3 = obj.startsWith(prefix);
- */}
+ */
+}
