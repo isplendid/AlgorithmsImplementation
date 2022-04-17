@@ -25,7 +25,7 @@ public class InorderTraversal_94 {
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             //节点不为空一直压栈
-            while (cur != null) {
+            while (cur != null) {       
                 stack.push(cur);
                 cur = cur.left; //考虑左子树
             }

@@ -8,5 +8,8 @@ public class TestMain {
         String str = "sss";
        // str.charAt()
 
+        int[] arr =new int[10];
+
+
     }
 }

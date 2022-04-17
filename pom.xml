@@ -9,6 +9,8 @@
         <module>algorithm-implementation</module>
         <module>system-design</module>
         <module>java-guide</module>
+        <module>plugin-demo</module>
+        <module>thrift_ofs</module>
         <!--        <module>java-basic</module>-->
     </modules>
 
