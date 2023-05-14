@@ -1,6 +1,6 @@
 package com.xu.interview.multithread.thread.tl;
 
-import com.google.common.collect.Lists;
+//import com.google.common.collect.Lists;
 
 import java.util.List;
 

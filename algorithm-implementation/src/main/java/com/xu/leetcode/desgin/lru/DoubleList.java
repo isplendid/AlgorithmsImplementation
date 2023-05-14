@@ -32,7 +32,7 @@ public class DoubleList {
         size--;
     }
 
-    // 删除链表中最后一个节点，并返回该节点，时间 O(1)
+    // 删除链表中最后一个节点，并返回该节点，时间 O(1),  最久不使用的
     public Node removeLast(){
         if(tail.prev == head){
             return null;

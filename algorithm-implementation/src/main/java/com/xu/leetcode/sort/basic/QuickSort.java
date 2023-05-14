@@ -23,7 +23,7 @@ public class QuickSort {
      * @return
      */
     private int partition(int[] A, int low, int high){
-         int pivot = A[low];
+         int pivot = A[low]; //随机选择  pivot = A[left + random.nextInt(right - left + 1)];
         while(low < high){
             while(low < high && A[high] >= pivot){  //挖坑A[low] , 将A[high]填上 A[low]上
                 high--;

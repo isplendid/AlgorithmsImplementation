@@ -11,7 +11,7 @@ public class Test {
         int l2 = num2.length() -1;
         StringBuilder sb = new StringBuilder();
         int carry = 0;
-        while(l1 >= 0 || l2 >= 0){
+        while(l1 >= 0 || l2 >= 0 || carry > 0) {
             int n1 = l1 == -1 ? 0 : (int) num1.charAt(l1) - '0';
             int n2 = l2 == -1 ? 0 : (int) num2.charAt(l2) - '0';
             int sum = n1 +n2 +carry;
@@ -23,9 +23,6 @@ public class Test {
             if(l2 >= 0) {
                 l2--;
             }
-        }
-        if(carry >0){
-            sb.insert(0, String.valueOf(carry));
         }
         return sb.toString();
 

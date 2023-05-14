@@ -6,6 +6,13 @@ import java.util.LinkedList;
  * Created by sop on 2020/6/7.
  * 单调队列数据结构
  * https://labuladong.gitbook.io/temp/readme-2
+ *
+ * 单调队列
+ *
+ * 单调递减队列
+ * push   大元素
+ * last ----- X------  first (最大）
+ *
  */
 public class MonotonicQueueImpl implements MonotonicQueue{
 

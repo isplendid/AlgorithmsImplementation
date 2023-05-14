@@ -1,4 +1,6 @@
-package com.xu.leetcode.binarytree;
+package com.xu.leetcode.binarytree.traversal;
+
+import com.xu.leetcode.binarytree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -47,7 +49,7 @@ public class LevelTraversalTree_102 {
                 }
             }
 
-            result.add(list);    // 逆序打印： result.add(0,list);
+            result.add(list);    // 逆序打印： result.add(0,list);; 注意使用LinkedList, 插入头部的时间复杂度为O(1)
         }
         return result;
     }

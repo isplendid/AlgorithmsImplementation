@@ -11,7 +11,9 @@ import java.util.List;
 public class MaxWindow_239 {
     public int[] maxSlidingWindow(int[] nums, int k) {
         MonotonicQueue queue = new MonotonicQueueImpl();
+
         List<Integer> list = new ArrayList<>();
+
         for (int i = 0; i < nums.length; i++) {
             if (i < k - 1) {
                 queue.push(nums[i]);

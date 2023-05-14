@@ -9,6 +9,11 @@ import java.util.Stack;
 /**
  * Created by sop on 2020/3/7.
  * 前序 与中序结构一样，不同的是  add List的地方不一致
+ *
+ * 先序：  根 => 左 => 右
+ * 中序：  左 => 根 => 右
+ *
+ *
  */
 public class PreorderTraversal_144 {
 
@@ -36,6 +41,7 @@ public class PreorderTraversal_144 {
         List<Integer> res = new ArrayList<>();
         if(root == null) return res;
         Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
         while(!stack.isEmpty() ){
             root = stack.pop();
             res.add(root.val);

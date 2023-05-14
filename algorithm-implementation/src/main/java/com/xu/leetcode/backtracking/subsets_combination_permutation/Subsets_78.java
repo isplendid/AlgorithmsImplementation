@@ -23,7 +23,10 @@ import java.util.Stack;
  ]
 
  链接：https://leetcode-cn.com/problems/subsets
+ *最后，backtrack 函数开头看似没有 base case，会不会进入无限递归的，
+ * 其实不会的，当 start == nums.length 时，叶子节点的值会被装入 res，但 for 循环不会执行，也就结束了递归。
  *
+ * 递归，res值，深度优先， [], [1],[1,2],[1,2,3], [1,3], [2], [2,3], [3]
  */
 public class Subsets_78 {
     private List<List<Integer>> res = new ArrayList<>();
@@ -44,6 +47,14 @@ public class Subsets_78 {
     }
 
     public static void main(String[] args) {
+
+        int[] nums = new int[] {1,2,3};
+
+        Subsets_78 sub = new Subsets_78();
+        List<List<Integer>> ans = sub.subsets(nums);
+
+        ans.stream().forEach(System.out::println);
+
 
     }
 

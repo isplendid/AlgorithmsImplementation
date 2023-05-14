@@ -12,32 +12,38 @@ class ArrayUtils {
         System.out.println("}");
     }
 
-    public static void exchangeElements(int[] array, int index1, int index2) {
-        int temp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = temp;
+    public static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
 
 
-/****
- * ¶ş²æ¶ÑµÄ²Ù×÷£º insert(ÉÏ¸¡£©£º´ÓĞ¡µ½ÉÏ²Ù×÷£¬ deleteMax (ÏÂ³Á£©£º´ÓÉÏµ½ÏÂ²Ù×÷
- * ¶ÑÊÇÒ»ÖÖÍêÈ«¶ş²æÊ÷
- * ²åÈëÊı¾İºÍÉ¾³ı¶Ñ¶¥ÔªËØµÄÖ÷ÒªÂß¼­¾ÍÊÇ¶Ñ»¯£¬
- * ËùÒÔ£¬Íù¶ÑÖĞ²åÈëÒ»¸öÔªËØºÍÉ¾³ı¶Ñ¶¥ÔªËØµÄÊ±¼ä¸´ÔÓ¶È¶¼ÊÇ
- *
- * »ùÓÚ¶Ñ½á¹¹ÊµÏÖµÄÅÅĞòËã·¨³ÆÎª¶ÑÅÅĞò£¬ËüÊ±¼ä¸´ÔÓ¶È·Ç³£ÎÈ¶¨Îª£¬²¢ÇÒËü»¹ÊÇÔ­µØÅÅĞòËã·¨¡£
- * Æä¹ı³Ì¿ÉÒÔ´óÖÂ·Ö½âÎªÁ½¸ö´óµÄ²½Öè£º½¨¶ÑºÍÅÅĞò
- *
- * ½¨¶Ñ¹ı³Ì£º ¶øµÚ¶şÖÖÊµÏÖË¼Â·£¬ÊÇ´ÓºóÍùÇ°´¦ÀíÊı×é£¬²¢ÇÒÃ¿¸öÊı¾İ¶¼ÊÇ´ÓÉÏÍùÏÂ¶Ñ»¯
- * https://www.zdaiot.com/DataStructureAlgorithm/27%E5%A0%86%E5%92%8C%E5%A0%86%E6%8E%92%E5%BA%8F%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4%E5%A0%86%E6%8E%92%E5%BA%8F%E6%B2%A1%E6%9C%89%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%BF%AB/
- *
- *
- */
-
 /***
- * ¶ÑÅÅĞòÊ±¼ä¸´ÔÓ¶ÈÒ»°ãÈÏÎª¾ÍÊÇO(nlogn)¼¶
- * ¿Õ¼äO(1£©
+ *
+ * å®Œå…¨äºŒå‰æ ‘ï¼Œæ¯”è¾ƒé€‚åˆç”¨æ•°ç»„å­˜å‚¨ï¼Œä¸éœ€è¦å­˜å‚¨å·¦å³æŒ‡é’ˆï¼Œæ•°ç»„ä¸‹æ ‡è®¿é—®
+ * trick: ä»ä¸‹æ ‡ä¸º1å¼€å§‹ï¼Œ ä¸‹æ ‡ièŠ‚ç‚¹çš„å·¦å­èŠ‚ç‚¹ 2i,å³å­èŠ‚ç‚¹ 2i + 1; çˆ¶èŠ‚ç‚¹ä¸ºi/2
+ *
+ * æ’å…¥æ–°å…ƒç´ ï¼š ï¼ˆå †åŒ–ï¼‰ ä»ä¸‹å¾€ä¸Šè°ƒæ•´å…ƒç´  heapify
+ * åˆ é™¤å †é¡¶å…ƒç´ ï¼š æœ€åä¸€ä¸ªå…ƒç´ æ”¾åˆ°å †é¡¶ï¼Œä»ä¸Šå¾€ä¸‹çš„å †åŒ–heapifyæ–¹æ³•ã€‚ (æ»¡è¶³å®Œå…¨äºŒå‰æ ‘çš„ç‰¹æ€§ï¼Œä¸ä¼šé‡ç°ç©ºæ´ï¼‰
+ *
+ * å»ºå †çš„æ€è·¯ï¼š
+ *   1ï¼‰ ä»å‰å¾€åå¤„ç†æ•°ç»„æ•°æ®ï¼Œå¹¶ä¸”æ¯ä¸ªæ•°æ®æ’å…¥å †ä¸­æ—¶ï¼Œéƒ½æ˜¯ä»ä¸‹å¾€ä¸Šå †åŒ–ã€‚  ï¼ˆæ’å…¥ï¼‰
+ * âˆš 2ï¼‰ ä»åå¾€å‰å¤„ç†æ•°ç»„ï¼Œå¹¶ä¸”æ¯ä¸ªæ•°æ®éƒ½æ˜¯ä»ä¸Šå¾€ä¸‹å †åŒ–ã€‚   âˆš   ä»éå¶å­èŠ‚ç‚¹å¼€å§‹å †åŒ–ï¼š length(array)/2 -1 ; (å¯¹äºå®Œå…¨äºŒå‰æ ‘æ¥è¯´ï¼Œä¸‹æ ‡ä» n/2+1 åˆ° n çš„èŠ‚ç‚¹éƒ½æ˜¯å¶å­èŠ‚ç‚¹ã€‚)
+ * å»ºå †æ—¶é—´å¤æ‚åº¦ï¼šO(N)
+ * æ’åºçš„æ—¶é—´å¤æ‚åº¦ NlogN
+ *
+ * å †æ’åºä¸æ˜¯ç¨³å®šçš„æ’åºç®—æ³•ï¼Œå› ä¸ºåœ¨æ’åºçš„è¿‡ç¨‹ï¼Œå­˜åœ¨å°†å †çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹è·Ÿå †é¡¶èŠ‚ç‚¹äº’æ¢çš„æ“ä½œï¼Œæ‰€ä»¥å°±æœ‰å¯èƒ½æ”¹å˜å€¼ç›¸åŒæ•°æ®çš„åŸå§‹ç›¸å¯¹é¡ºåºã€‚
+ *
+ *
+ * æ—¶é—´å¤æ‚åº¦ï¼šO(nlogn)
+ * ç©ºé—´å¤æ‚åº¦ï¼šO(1ï¼‰
+ *
+ *
+ * æ³¨æ„ï¼š è¯¥æ’åºç®—æ³•æ˜¯ä»æ•°ç»„0å¼€å§‹çš„ï¼ˆè€Œé1ï¼‰
+ * ä¸‹æ ‡iå·¦èŠ‚ç‚¹ 2i+1,  å³èŠ‚ç‚¹2i+2, æœ€åä¸€ä¸ªéå¶èŠ‚ç‚¹ n/2 -1ï¼›
+ * ä¸‹æ ‡içš„çˆ¶èŠ‚ç‚¹ä¸º i/2-1;
  */
 public class HeapSort {
     public static void main(String[] args) {
@@ -55,37 +61,40 @@ public class HeapSort {
         if (array == null || array.length == 1) {
             return;
         }
-        //step 1:  ¹¹Ôì´ó¶¥¶Ñ
+        //step 1:  åˆå§‹åŒ–å»ºå¤§é¡¶å †
         buildMaxHeap(array);
 
-        //step2: ½»»»¶Ñ¶¥ÔªËØÓëÄ©Î²ÔªËØ + µ÷Õû¶Ñ½á¹¹
+        //step2: æ’åºï¼Œ å †é¡¶ä¸æœ€åä¸€ä¸ªå…ƒç´ äº¤æ¢ï¼Œæœ€å¤§å…ƒç´ æ”¾åˆ°ä¸‹æ ‡içš„ä½ç½®ï¼Œ è‡ªä¸Šè€Œä¸‹å †åŒ–
         for (int i = array.length - 1; i >= 1; i--) {
-            ArrayUtils.exchangeElements(array, 0, i);  //½«¶Ñ¶¥ÔªËØÓëÄ©Î²ÔªËØ½øĞĞ½»»»
-            ajustHeap(array,0, i);  //ÖØĞÂ¶Ô¶Ñ½øĞĞµ÷Õû
+            swap(array, 0, i);
+            ajustHeap(array,0, i);
         }
     }
 
-	//³õÊ¼»¯×î´ó¶Ñ
+	//å»ºå¤§é¡¶å †
 	private static void buildMaxHeap(int[] array) {
 		if (array == null || array.length <= 1) {
 			return;
 		}
-		int half = array.length / 2 - 1; //´ÓµÚÒ»¸ö·ÇÒ¶×Ó½áµã´ÓÏÂÖÁÉÏ£¬´ÓÓÒÖÁ×óµ÷Õû½á¹¹
-		for (int i = half; i >= 0; i--) {
+		int half = array.length / 2 - 1; // æœ€åä¸€ä¸ªéå¶èŠ‚ç‚¹ï¼š n/2 -1;
+		for (int i = half; i >= 0; i--) {  //éå¶èŠ‚ç‚¹ï¼Œä¹Ÿæ˜¯ä»ä¸Šå¾€ä¸‹å †åŒ–
 			ajustHeap(array, i, array.length);
 		}
 	}
 
 
-	/***
-	 *  µ÷Õû´ó¶¥¶Ñ£¨½öÊÇµ÷Õû¹ı³Ì£¬½¨Á¢ÔÚ´ó¶¥¶ÑÒÑ¹¹½¨µÄ»ù´¡ÉÏ£© ´ÓÉÏµ½ÏÂ
-     *  ĞÔÖÊÒ»: Ë÷ÒıÎªiµÄ×óº¢×ÓµÄË÷ÒıÊÇ (2*i+1);
-     * ĞÔÖÊ¶ş: Ë÷ÒıÎªiµÄ×óº¢×ÓµÄË÷ÒıÊÇ (2*i+2);
-     * ĞÔÖÊÈı: Ë÷ÒıÎªiµÄ¸¸½áµãµÄË÷ÒıÊÇ floor((i-1)/2);
-	 * @param array
-	 * @param heapSize  ´ıÅÅĞò¶Ñ³¤¶È
-	 * @param index µ±Ç°ÔªËØË÷Òı
-	 */
+    /***
+     *
+     * é€’å½’æ–¹å¼
+     *
+     * è‡ªä¸Šè€Œä¸‹å †åŒ– ï¼ˆæ’åºé˜¶æ®µï¼šå°†å †é¡¶å…ƒç´ ä¸å°¾éƒ¨äº¤æ¢ï¼‰
+     *
+     * ä¸‹æ ‡ièŠ‚ç‚¹çš„å·¦å­èŠ‚ç‚¹ï¼š (2*i+1);
+     * ä¸‹æ ‡ièŠ‚ç‚¹çš„å³å­èŠ‚ç‚¹ï¼š (2*i+2);
+     * @param array
+     * @param index  èµ·å§‹ä¸‹æ ‡
+     * @param heapSize  å¾…è°ƒæ•´çš„å † æ•°é‡
+     */
     private static void ajustHeap(int[] array, int index, int heapSize) {
         int left = index * 2 + 1;
         int right = index * 2 + 2;
@@ -98,51 +107,44 @@ public class HeapSort {
             largest = right;
         }
         if (index != largest) {
-            ArrayUtils.exchangeElements(array, index, largest);
+            swap(array, index, largest);
             ajustHeap(array, largest, heapSize);
         }
     }
 
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 
 
 
+    //å †åŒ–çš„éé€’å½’å®ç°
+    public void heapify(int[] arr, int index, int heapSize) {
+        int left = index * 2 + 1;
+        int right = index * 2 + 2;
+        int largest = index;
 
+        while (left < heapSize) {
+            if (arr[left] > arr[index]) {
+                largest = left;
+            }
 
+            if (right < heapSize && arr[right] > arr[largest]) {
+                largest = right;
+            }
 
-
-
-	//µ÷Õû×î´ó¶Ñ
-	public void heapify(int[] arr, int index, int heapSize) {
-		int left = index * 2 + 1;
-		int right = index * 2 + 2;
-		int largest = index;
-
-		while (left < heapSize) {
-			if (arr[left] > arr[index]) {
-				largest = left;
-			}
-
-			if (right < heapSize && arr[right] > arr[largest]) {
-				largest = right;
-			}
-
-			if (largest != index) {
-				swap(arr, index, largest);
-			} else {
-				break;
-			}
-			index = largest;
-			left = index * 2 + 1;
-			right = index * 2 + 2;
-		}
-	}
-
-
-	private void swap(int[] arr, int parent, int index) {
-		int tmp = arr[parent];
-		arr[parent] = arr[index];
-		arr[index] = tmp;
-	}
+            if (largest != index) {
+                swap(arr, index, largest);
+            } else {
+                break;
+            }
+            index = largest;
+            left = index * 2 + 1;
+            right = index * 2 + 2;
+        }
+    }
 
 
 }
