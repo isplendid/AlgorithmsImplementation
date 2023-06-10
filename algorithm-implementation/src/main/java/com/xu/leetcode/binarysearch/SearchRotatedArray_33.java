@@ -10,6 +10,8 @@ package com.xu.leetcode.binarysearch;
 
  基于这个事实。
  我们可以先找到哪一段是有序的 (只要判断端点即可)，然后看 target 在不在这一段里，如果在，那么就把另一半丢弃。如果不在，那么就把这一段丢弃。
+
+ arr[left]和 arr[mid]比较即可
  */
 public class SearchRotatedArray_33 {
     public int search(int[] nums, int target) {

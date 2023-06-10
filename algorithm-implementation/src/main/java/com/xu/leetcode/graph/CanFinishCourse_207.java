@@ -10,10 +10,12 @@ import java.util.Stack;
  */
 public class CanFinishCourse_207 {
 
+
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
         //深度优先搜索解决，先转换为Graph G，邻接表模式
-        ArrayList<Integer>[] graph =  (ArrayList<Integer>[]) new ArrayList[numCourses];
+        ArrayList<Integer>[] graph = new ArrayList[numCourses];
         for(int i=0; i<numCourses;i++){
             graph[i] = new ArrayList<>();
         }
@@ -43,7 +45,7 @@ public class CanFinishCourse_207 {
                 return true;
             }
         }
-        onStack[v]= false;
+        onStack[v]= false;  //退出
         return false;
     }
 

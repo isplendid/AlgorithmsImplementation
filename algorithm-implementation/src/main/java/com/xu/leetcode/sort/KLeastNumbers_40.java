@@ -8,6 +8,35 @@ import java.util.PriorityQueue;
  *
  */
 public class KLeastNumbers_40 {
+
+    //最小的k个数， 大顶堆.   (a,b) -> b-a
+    public int[] smallestK(int[] arr, int k) {
+        if(null == arr || arr.length == 0 || k==0) {
+            return new int[0];
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b -a );
+        int[] ans = new int[k];
+
+
+        for(int a: arr) {
+            if(pq.size() == k && pq.peek() <= a) {
+                continue;
+            }
+            if(pq.size() == k ) {
+                pq.poll();
+            }
+            pq.add(a);
+        }
+
+        for(int i = k-1; i>=0; i--) {
+            ans[i] = pq.poll();
+        }
+
+        return ans;
+
+    }
+
+
     /***
      * 由于使用了一个大小为 k 的堆，空间复杂度为 O(k)
      * 入堆和出堆操作的时间复杂度均为O(nlogk)，每个元素都需要进行一次入堆操作，

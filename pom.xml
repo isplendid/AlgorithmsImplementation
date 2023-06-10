@@ -10,7 +10,11 @@
         <module>system-design</module>
         <module>java-guide</module>
         <module>plugin-demo</module>
-        <module>thrift_ofs</module>
+<!--        <module>thrift_ofs</module>-->
+<!--        <module>PbDemo</module>-->
+        <module>PbSchemaDemo</module>
+        <module>MiniSpring</module>
+        <module>spring-core-demo</module>
         <!--        <module>java-basic</module>-->
     </modules>
 

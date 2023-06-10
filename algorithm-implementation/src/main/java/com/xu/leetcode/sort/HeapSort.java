@@ -1,24 +1,5 @@
 package com.xu.leetcode.sort;
 
-class ArrayUtils {
-    public static void printArray(int[] array) {
-        System.out.print("{");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-            if (i < array.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("}");
-    }
-
-    public static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
-
 
 /***
  *
@@ -67,20 +48,20 @@ public class HeapSort {
         //step2: 排序， 堆顶与最后一个元素交换，最大元素放到下标i的位置， 自上而下堆化
         for (int i = array.length - 1; i >= 1; i--) {
             swap(array, 0, i);
-            ajustHeap(array,0, i);
+            ajustHeap(array, 0, i);
         }
     }
 
-	//建大顶堆
-	private static void buildMaxHeap(int[] array) {
-		if (array == null || array.length <= 1) {
-			return;
-		}
-		int half = array.length / 2 - 1; // 最后一个非叶节点： n/2 -1;
-		for (int i = half; i >= 0; i--) {  //非叶节点，也是从上往下堆化
-			ajustHeap(array, i, array.length);
-		}
-	}
+    //建大顶堆
+    private static void buildMaxHeap(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
+        int half = array.length / 2 - 1; // 最后一个非叶节点： n/2 -1;
+        for (int i = half; i >= 0; i--) {  //非叶节点，也是从上往下堆化
+            ajustHeap(array, i, array.length);
+        }
+    }
 
 
     /***
@@ -93,22 +74,22 @@ public class HeapSort {
      * 下标i节点的右子节点： (2*i+2);
      * @param array
      * @param index  起始下标
-     * @param heapSize  待调整的堆 数量
+     * @param length  待调整的堆长度
      */
-    private static void ajustHeap(int[] array, int index, int heapSize) {
+    private static void ajustHeap(int[] array, int index, int length) {
         int left = index * 2 + 1;
         int right = index * 2 + 2;
 
         int largest = index;
-        if (left < heapSize && array[left] > array[index]) {
+        if (left < length && array[left] > array[index]) {
             largest = left;
         }
-        if (right < heapSize && array[right] > array[largest]) {
+        if (right < length && array[right] > array[largest]) {
             largest = right;
         }
         if (index != largest) {
             swap(array, index, largest);
-            ajustHeap(array, largest, heapSize);
+            ajustHeap(array, largest, length);
         }
     }
 
@@ -117,7 +98,6 @@ public class HeapSort {
         array[i] = array[j];
         array[j] = temp;
     }
-
 
 
     //堆化的非递归实现
@@ -146,5 +126,48 @@ public class HeapSort {
         }
     }
 
+    /**
+     * 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上）
+     *
+     * @param arr
+     * @param i
+     * @param length
+     */
+    public static void adjustHeap_2(int[] arr, int i, int length) {
+        int temp = arr[i];//先取出当前元素i
+        for (int k = i * 2 + 1; k < length; k = k * 2 + 1) {//从i结点的左子结点开始，也就是2i+1处开始
+            if (k + 1 < length && arr[k] < arr[k + 1]) {//如果左子结点小于右子结点，k指向右子结点
+                k++;
+            }
+            if (arr[k] > temp) {//如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）
+                arr[i] = arr[k];
+                i = k;
+            } else {
+                break;
+            }
+        }
+        arr[i] = temp;//将temp值放到最终的位置
+    }
 
 }
+
+
+class ArrayUtils {
+    public static void printArray(int[] array) {
+        System.out.print("{");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("}");
+    }
+
+    public static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+

@@ -8,9 +8,6 @@ import java.util.PriorityQueue;
  */
 public class KsmallestNumber_offer40 {
     public static int[] getLeastNumbers(int[] arr, int k) {
-        if (k == 0 || arr.length == 0) {
-            return new int[0];
-        }
         PriorityQueue<Integer> pq = new PriorityQueue<>(k, (a,b) -> b-a); //大顶堆，最小的k数据
         for(int i=0; i<arr.length; i++){
             if(i>=k){

@@ -1,11 +1,9 @@
 package com.xu.basic;
 
-import com.google.common.collect.Lists;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.io.IOException;
+import java.util.Map;
 
 /**
  * @author xushichao
@@ -13,13 +11,40 @@ import java.util.stream.Collectors;
  * @desc
  */
 public class TestSet {
+    private static final String skip = "skip";
+
+    private static final ObjectMapper mapper = new ObjectMapper();
+
+    public static <T> T deserialize(String jsonString, Class<T> clazz) throws IOException {
+
+            return mapper.readValue(jsonString, clazz);
+
+    }
+
+    private static final String serialString = "{\"@class\":\"java.util.HashMap\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"confirmMethod\\\"}\":\"\",\"{\\\"@class\\\":\\\"java.lang.String\\\"," +
+            "\\\"value\\\":\\\"misId\\\"}\":\"xushichao\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"rollbackMethod\\\"}\":\"\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"method\\\"}\"" +
+            ":\"deleteExperimentWithoutGroup\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"param\\\"}\":{\"@class\":\"java.util.HashMap\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"detailViewForMessage\\\"}\"" +
+            ":{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupDetailView\",\"iterationIdNameList\":[\"java.util.Collections$EmptyList\",[]],\"experimentType\":1,\"experimentMark\":0,\"experimentDimension\":\"9\",\"algorithmId\":460,\"groupId\":4860,\"domainId\":2734,\"groupName\"" +
+            ":\"白名单测试xscNew_2\",\"groupDesc\":\"\",\"groupDimension\":9,\"newOrOld\":1,\"startTime\":[\"java.util.Date\",\"2022-09-12 00:00:00\"],\"endTime\":[\"java.util.Date\",\"2022-09-13 23:59:59\"],\"ctime\":[\"java.util.Date\",\"2022-08-18 17:31:04\"],\"utime\":[\"java.util.Date\",\"2022-08-18 17:31:04\"]," +
+            "\"experimentWebViewList\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentWebView\",\"algorithmId\":460,\"algorithmKey\":\"yt.ab.test\",\"experimentMark\":0,\"experimentDimension\":\"9\",\"experimentId\":9898,\"experimentName\":\"分1\",\"experimentGroupId\":4860,\"experimentGroupName\":" +
+            "\"白名单测试xscNew_2\",\"groupDimension\":9,\"useTimeSlice\":0,\"strategyId\":1089,\"strategyKey\":\"quick\",\"strategyName\":\"快送\",\"versionId\":1406,\"versionCode\":\"V2.0\",\"versionDesc\":\"2.0\",\"experimentDesc\":\"\",\"experimentType\":1,\"classifier\":1,\"classifierName\":\"实验组\",\"status\":4,\"areaNum\":1,\"newOrOld\":1,\"startTime\":[\"java.util.Date\"," +
+            "\"2022-09-12 00:00:00\"],\"endTime\":[\"java.util.Date\",\"2022-09-13 23:59:59\"],\"ctime\":[\"java.util.Date\",\"2022-08-18 17:31:04\"],\"utime\":[\"java.util.Date\",\"2022-08-18 17:31:04\"],\"opId\":3056855,\"opName\":\"xushichao\",\"bindParamList\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"haha\"," +
+            "\"paramValue\":\"11\",\"paramDesc\":\"11\",\"type\":0,\"lowerLimit\":null,\"upperLimit\":null,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":5252,\"defaultValue\":\"11\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"name\",\"paramValue\":\"yangtao1\",\"paramDesc\":\"姓名\",\"type\":0,\"lowerLimit\":null,\"upperLimit\":null,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1895,\"defaultValue\":\"yangtao1\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"sex\",\"paramValue\":\"1\",\"paramDesc\":\"性别\",\"type\":1,\"lowerLimit\":0.0,\"upperLimit\":1.0,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1894,\"defaultValue\":\"1\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"str1\",\"paramValue\":\"abc\",\"paramDesc\":\"非数字\",\"type\":0,\"lowerLimit\":null,\"upperLimit\":null,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1858,\"defaultValue\":\"abc\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"test1\",\"paramValue\":\"5\",\"paramDesc\":\"测试1\",\"type\":1,\"lowerLimit\":1.0,\"upperLimit\":10.0,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1857,\"defaultValue\":\"5\",\"acType\":1}]],\"bizTypeList\":[\"java.util.ArrayList\",[]]},{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentWebView\",\"algorithmId\":460,\"algorithmKey\":\"yt.ab.test\",\"experimentMark\":0,\"experimentDimension\":\"9\",\"experimentId\":9897,\"experimentName\":\"分2\",\"experimentGroupId\":4860,\"experimentGroupName\":\"白名单测试xscNew_2\",\"groupDimension\":9,\"useTimeSlice\":0,\"strategyId\":1089,\"strategyKey\":\"quick\",\"strategyName\":\"快送\",\"versionId\":1406,\"versionCode\":\"V2.0\",\"versionDesc\":\"2.0\",\"experimentDesc\":\"\",\"experimentType\":1,\"classifier\":2,\"classifierName\":\"对照组\",\"status\":4,\"areaNum\":1,\"newOrOld\":1,\"startTime\":[\"java.util.Date\",\"2022-09-12 00:00:00\"],\"endTime\":[\"java.util.Date\",\"2022-09-13 23:59:59\"],\"ctime\":[\"java.util.Date\",\"2022-08-18 17:31:04\"],\"utime\":[\"java.util.Date\",\"2022-08-18 17:31:04\"],\"opId\":3056855,\"opName\":\"xushichao\",\"bindParamList\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"haha\",\"paramValue\":\"11\",\"paramDesc\":\"11\",\"type\":0,\"lowerLimit\":null,\"upperLimit\":null,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":5252,\"defaultValue\":\"11\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"name\",\"paramValue\":\"yangtao1\",\"paramDesc\":\"姓名\",\"type\":0,\"lowerLimit\":null,\"upperLimit\":null,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1895,\"defaultValue\":\"yangtao1\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"sex\",\"paramValue\":\"1\",\"paramDesc\":\"性别\",\"type\":1,\"lowerLimit\":0.0,\"upperLimit\":1.0,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1894,\"defaultValue\":\"1\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"str1\",\"paramValue\":\"abc\",\"paramDesc\":\"非数字\",\"type\":0,\"lowerLimit\":null,\"upperLimit\":null,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1858,\"defaultValue\":\"abc\",\"acType\":1},{\"@class\":\"com.sankuai.meituan.banma.console.algorithm.pojo.AlgorithmParamView\",\"paramKey\":\"test1\",\"paramValue\":\"5\",\"paramDesc\":\"测试1\",\"type\":1,\"lowerLimit\":1.0,\"upperLimit\":10.0,\"extendInfo\":null,\"algorithmId\":460,\"paramId\":1857,\"defaultValue\":\"5\",\"acType\":1}]],\"bizTypeList\":[\"java.util.ArrayList\",[]]}]],\"timeView\":{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$TimeView\",\"useTimeSlice\":0,\"totalSliceCount\":0,\"eachSliceSpan\":0,\"sliceUnitId\":0},\"expressionList\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$PolicyView\",\"sliceNumber\":0,\"areaViewIndex\":0,\"aaGroupIndex\":-1,\"expression\":\"\",\"experimentIndex\":0,\"areaNum\":1,\"idSetNum\":0},{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$PolicyView\",\"sliceNumber\":0,\"areaViewIndex\":1,\"aaGroupIndex\":-1,\"expression\":\"\",\"experimentIndex\":1,\"areaNum\":1,\"idSetNum\":0}]],\"areaViewList\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$AreaNameView\",\"positiveAreas\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$IdNameView\",\"id\":\"110100\",\"name\":\"北京\",\"btype\":11}]],\"allCountry\":0,\"negtiveAreas\":[\"java.util.Collections$EmptyList\",[]],\"positiveCitys\":[\"java.util.Collections$EmptyList\",[]],\"negtiveCitys\":[\"java.util.Collections$EmptyList\",[]],\"positiveCountrys\":[\"java.util.Collections$EmptyList\",[]]},{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$AreaNameView\",\"positiveAreas\":[\"java.util.ArrayList\",[{\"@class\":\"com.sankuai.meituan.banma.console.experiment.pojo.ExperimentGroupWebView$IdNameView\",\"id\":\"422800\",\"name\":\"恩施\",\"btype\":11}]],\"allCountry\":0,\"negtiveAreas\":[\"java.util.Collections$EmptyList\",[]],\"positiveCitys\":[\"java.util.Collections$EmptyList\",[]],\"negtiveCitys\":[\"java.util.Collections$EmptyList\",[]],\"positiveCountrys\":[\"java.util.Collections$EmptyList\",[]]}]],\"aaGroupList\":[\"java.util.ArrayList\",[]]},\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"algorithmType\\\"}\":460,\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"deleteGroup\\\"}\":true,\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"user\\\"}\":{\"@class\":\"com.sankuai.meituan.auth.vo.User\",\"id\":3056855,\"login\":\"xushichao\",\"name\":\"徐仕超\",\"code\":\"03157933\",\"email\":\"xushichao@test.com\",\"tenantId\":\"1\",\"roles\":null,\"isVerified\":false,\"verifyType\":\"\",\"verifyExpireTime\":0,\"verified\":false},\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"groupId\\\"}\":[\"java.lang.Long\",4860]},\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"opName\\\"}\":\"徐仕超\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"opId\\\"}\":3056855,\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"class\\\"}\":\"com.sankuai.meituan.banma.console.experiment.service.ExpOpServcie\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"denyHookMethod\\\"}\":\"\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"content\\\"}\":\"算法名称：yt.ab.test(yt.ab.test)(Id=460)\\n发布类型: 删除/停用实验\\n实验组名称: 白名单测试xscNew_2\\n实验时间: 2022-09-12 00:00:00 至 2022-09-13 23:59:59\\n时间片:[实验信息:]\\n-----实验1------\\n|名称: 分1\\n|策略: 快送\\n|版本: V2.0\\n-----实验2------\\n|名称: 分2\\n|策略: 快送\\n|版本: V2.0\\n------------------------------------------\\n[区域分组信息:]\\n-----地域组1------\\n\\n|正选区域:\\n北京(110100)\\n-----地域组2------\\n\\n|正选区域:\\n恩施(422800)\\n----------------------------------------\\n[表达式信息:]\\n------表达式1-----\\n|时间片: 第1片\\n|表达式: \\n|地域: 地域组1\\n|绑定实验: 实验分1\\n------表达式2-----\\n|时间片: 第1片\\n|表达式: \\n|地域: 地域组2\\n|绑定实验: 实验分2\\n----------------------------------------\\n\",\"{\\\"@class\\\":\\\"java.lang.String\\\",\\\"value\\\":\\\"cancelHookMethod\\\"}\":\"\"}";
+
+    public static void main1(String[] args) throws IOException {
+
+        Map map = deserialize(serialString, Map.class);
+        boolean isskip = (Boolean) map.get(skip);
+        System.out.println(isskip);
+    }
+
+
     public static void main(String[] args) {
-        List<String> list = null;
-
-        for(String s:list){
-            System.out.println(s);
+        StringBuilder sb = new StringBuilder();
+        if(sb.length()>0){
+            System.out.println("hello");
+        } else {
+            System.out.println(sb.length());
         }
-
-
     }
 }
