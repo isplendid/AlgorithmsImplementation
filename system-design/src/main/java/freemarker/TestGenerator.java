@@ -22,7 +22,7 @@ public class TestGenerator {
     private DataMessageGenerator dataMessageGenerator;
 
 
-    public String generateNextboxDisplayCode(NextboxDatasourceDisplay display, String templateName) {
+    public String generateNextboxDisplayCode(NbDatasourceDisplay display, String templateName) {
         try {
             Template template = dataMessageGenerator.getTemplate(templateName);
             StringWriter writer = new StringWriter();
