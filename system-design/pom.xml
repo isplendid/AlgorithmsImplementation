@@ -25,7 +25,7 @@
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <slf4j-api.version>1.7.16</slf4j-api.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <transmittable-thread-local.version>2.5.1</transmittable-thread-local.version>
         <fastjson.version>1.2.83</fastjson.version>
         <fastutil.version>7.2.1</fastutil.version>
