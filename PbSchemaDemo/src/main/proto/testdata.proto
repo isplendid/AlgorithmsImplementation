@@ -1,0 +1,22 @@
+// Google Protocol Buffers Version 3.
+syntax = "proto3";
+option java_package = "learnProto.selfTest";
+option java_outer_classname = "MyTest";
+
+//import "google/protobuf/timestamp.proto";
+
+message Data{
+  uint32 uint32 = 1;
+  uint64 uint64 = 2;
+  int32 int32 = 3;
+  int64 int64 = 4;
+  sint32 sint32 = 5;
+  sint64 sint64 = 6;
+  fixed32 fixed32 = 7;
+  fixed64 fixed64 = 8;
+  bool bool=9;
+  string str = 10;
+  float float=11;
+  double double=12;
+//  google.protobuf.Timestamp time = 13;
+}

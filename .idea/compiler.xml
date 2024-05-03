@@ -9,14 +9,15 @@
         <module name="system-design" />
         <module name="algorithm-implementation" />
         <module name="java-guide" />
+        <module name="PbSchemaDemo" />
+        <module name="plugin-demo" />
+        <module name="spring-core-demo" />
+        <module name="MiniSpring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="algorithm" target="1.8" />
-      <module name="algorithm-implementation" target="1.8" />
       <module name="algorithmimplementation" target="1.8" />
-      <module name="java-guide" target="1.8" />
-      <module name="system-design" target="1.8" />
       <module name="SystemDesign" target="1.8" />
     </bytecodeTargetLevel>
   </component>
