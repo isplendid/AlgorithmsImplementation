@@ -15,6 +15,8 @@
         <module>PbSchemaDemo</module>
         <module>MiniSpring</module>
         <module>spring-core-demo</module>
+        <module>quartz-demo</module>
+        <module>spring-boot-quartz</module>
         <!--        <module>java-basic</module>-->
     </modules>
 

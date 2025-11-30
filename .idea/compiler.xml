@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="system-design" />
         <module name="algorithm-implementation" />
+        <module name="quartz-demo" />
+        <module name="spring-boot-quartz" />
         <module name="java-guide" />
         <module name="PbSchemaDemo" />
         <module name="plugin-demo" />
